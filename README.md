@@ -1,13 +1,9 @@
 # daily-activity-tracker
 this is a simple project that accepts your input daily activt and make it into more manageable time management tools
 
-Below is a **clean, Garuda-style README.md** adapted **exactly** to your *Daily Activity Tracker* project, following the same structure and tone as the template you provided.
 
-You can **copy–paste this directly** into your repo.
 
----
-
-# **Garuda Ilmu Komputer** – Weekly Task
+# **Divisi Ristek** – First Project
 
 <h2 align="center">
   Daily Activity Tracker<br/>
