@@ -35,6 +35,21 @@ def add_activity():
 
     return redirect(url_for("index"))
 
+@app.route("/activities")
+def activities():
+    conn = get_db()
+    rows = conn.execute("SELECT * FROM activity").fetchall()
+    conn.close()
+    return render_template("activities.html", activities=rows)
+
+@app.route("/delete/<int:id>")
+def delete_activity(id):
+    conn = get_db()
+    conn.execute("DELETE FROM activity WHERE id = ?", (id,))
+    conn.commit()
+    conn.close()
+    return redirect(url_for("activities"))
+
 if __name__ == "__main__":
     init_db()
     app.run(debug=True)

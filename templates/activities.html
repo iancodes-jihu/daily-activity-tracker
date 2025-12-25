@@ -1,0 +1,16 @@
+<h1>Activities</h1>
+
+{% if activities %}
+<ul>
+    {% for a in activities %}
+    <li>
+        {{ a.description }} | {{ a.date }} | {{ a.duration }} min
+        <a href="/delete/{{ a.id }}">Delete</a>
+    </li>
+    {% endfor %}
+</ul>
+{% else %}
+<p>No activities yet.</p>
+{% endif %}
+
+<a href="/">Back</a>
