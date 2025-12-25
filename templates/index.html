@@ -1,9 +1,10 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Daily Activity Tracker</title>
-</head>
-<body>
-    <h1>It works.</h1>
-</body>
-</html>
+<h1>Daily Activity Tracker</h1>
+
+<form method="POST" action="/activity">
+    <input type="text" name="description" placeholder="Activity" required>
+    <input type="date" name="date" required>
+    <input type="number" name="duration" placeholder="Minutes">
+    <button type="submit">Add</button>
+</form>
+
+<a href="/activities">View activities</a>

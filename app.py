@@ -1,5 +1,5 @@
 import sqlite3
-from flask import Flask, render_template
+from flask import Flask, render_template, request, redirect, url_for
 
 app = Flask(__name__)
 DATABASE = "db/activities.db"
@@ -18,6 +18,22 @@ def init_db():
 @app.route("/")
 def index():
     return render_template("index.html")
+
+@app.route("/activity", methods=["POST"])
+def add_activity():
+    description = request.form["description"]
+    date = request.form["date"]
+    duration = request.form.get("duration")
+
+    conn = get_db()
+    conn.execute(
+        "INSERT INTO activity (description, date, duration) VALUES (?, ?, ?)",
+        (description, date, duration)
+    )
+    conn.commit()
+    conn.close()
+
+    return redirect(url_for("index"))
 
 if __name__ == "__main__":
     init_db()
