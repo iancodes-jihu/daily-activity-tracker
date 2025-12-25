@@ -66,10 +66,11 @@ This project focuses on building a **complete end-to-end system** from user inpu
 
 ## Setup
 
-1. Install Python on your device
-2. Clone this repository
-3. Create and activate a virtual environment
-4. Install dependencies from `requirements.txt`
+```bash
+python -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
+python app.py
 
 <a name="usage"></a>
 
