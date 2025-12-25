@@ -1,10 +1,23 @@
-<h1>Daily Activity Tracker</h1>
+<head>
+  <title>Daily Activity Tracker</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
 
-<form method="POST" action="/activity">
-    <input type="text" name="description" placeholder="Activity" required>
-    <input type="date" name="date" required>
-    <input type="number" name="duration" placeholder="Minutes">
-    <button type="submit">Add</button>
-</form>
+<div class="card">
+  <h1>Log Today’s Activity</h1>
 
-<a href="/activities">View activities</a>
+  <form method="POST" action="/activity">
+    <label>What did you do?</label>
+    <input type="text" name="description" placeholder="e.g. Study DSA" required>
+
+    <label>Date</label>
+    <input type="date" name="date" value="{{ today }}" required>
+
+    <label>Duration (minutes)</label>
+    <input type="number" name="duration" min="1">
+
+    <button type="submit">Log activity</button>
+  </form>
+
+  <a href="/activities">View history</a>
+</div>
