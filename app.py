@@ -19,6 +19,8 @@ def init_db():
 def index():
     return render_template("index.html")
 
+
+
 @app.route("/activity", methods=["POST"])
 def add_activity():
     description = request.form["description"]
