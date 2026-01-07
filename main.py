@@ -1,11 +1,41 @@
 import time
+import json
 from datetime import datetime
-from tracker import get_active_window, is_afk, load_logs, save_logs, load_rules, classify_app, load_target, load_offline_schedule
+from src.core.sensor import get_active_window, is_afk
+from src.persistence.storage import load_activity_logs, save_activity_logs, append_activity_log
+
+
+def load_offline_schedule():
+    """Load offline schedule from file."""
+    try:
+        with open("offline_schedule.json", "r") as f:
+            return json.load(f)
+    except FileNotFoundError:
+        return []
+
+
+def categorize_app(app_name: str) -> str:
+    """Categorize app by name (basic heuristic)."""
+    productive_apps = ["Code.exe", "ChatGPT.exe", "nvim.exe", "python.exe", "firefox.exe"]
+    distracting_apps = ["Instagram", "Twitter", "TikTok", "Facebook", "Discord.exe", "Slack.exe", "YouTube"]
+    
+    for app in productive_apps:
+        if app.lower() in app_name.lower():
+            return "productive"
+    
+    for app in distracting_apps:
+        if app.lower() in app_name.lower():
+            return "distracting"
+    
+    if app_name in ["explorer.exe", "SearchHost.exe"]:
+        return "neutral"
+    
+    return "unknown"
+
 
 def main():
-    rules = load_rules()
-    logs = load_logs()
-    target = load_target()
+    """Main tracker loop."""
+    logs = load_activity_logs()
 
     current_app = get_active_window()
     start_time = datetime.now()
@@ -15,14 +45,10 @@ def main():
     afk_sec = 0
 
     last_afk = False
-    focus_recovery_sec = 0
 
-    distract_limit = target["max_distracting_minutes"] * 60
-    total_distract_today = 0
-    alert_sent = False
     offline_alert_sent = set()
 
-    print("Tracker jalan. Ctrl+C untuk berhenti.")
+    print("🟢 Tracker running. Press Ctrl+C to stop.")
 
     try:
         while True:
@@ -37,29 +63,31 @@ def main():
 
             # ===== OFFLINE ALERT =====
             for event in offline_schedule:
-                event_time = datetime.strptime(event["start"], "%H:%M").replace(
-                    year=now.year, month=now.month, day=now.day
-                )
-                prep_time = event_time.timestamp() - event["prep_minutes"] * 60
+                try:
+                    event_time = datetime.strptime(event["start"], "%H:%M").replace(
+                        year=now.year, month=now.month, day=now.day
+                    )
+                    prep_time = event_time.timestamp() - event["prep_minutes"] * 60
 
-                if prep_time <= now.timestamp() < event_time.timestamp():
-                    key = f"{event['title']}_{event['start']}"
-                    if key not in offline_alert_sent:
-                        print(f"ALERT: {event['title']} sebentar lagi. Stop gadget.")
-                        offline_alert_sent.add(key)
+                    if prep_time <= now.timestamp() < event_time.timestamp():
+                        key = f"{event['title']}_{event['start']}"
+                        if key not in offline_alert_sent:
+                            print(f"⏰ ALERT: {event['title']} coming up. Stop screen time.")
+                            offline_alert_sent.add(key)
+                except Exception:
+                    pass
 
             # ===== AFK HANDLING =====
             if afk:
                 afk_sec += elapsed
                 last_afk = True
-                focus_recovery_sec = 0
-                print("Status: AFK")
+                print(f"⏸ AFK detected ({afk_sec}s total)")
                 continue
 
             if last_afk:
-                # baru balik dari AFK, jangan hitung waktu palsu
+                # Just returned from AFK, don't count false time
                 last_afk = False
-                print("Status: Kembali dari AFK")
+                print("▶ Back to active")
                 continue
 
             # ===== ACTIVE TIME =====
@@ -67,19 +95,13 @@ def main():
 
             # ===== APP CHECK =====
             new_app = get_active_window()
-            category = classify_app(current_app, rules)
-
-            # ===== DISTRACTION ALERT RESET =====
-            if category == "productive":
-                focus_recovery_sec += elapsed
-                if focus_recovery_sec >= 900:  # 15 menit fokus
-                    alert_sent = False
-            else:
-                focus_recovery_sec = 0
 
             # ===== APP CHANGE =====
             if new_app != current_app:
-                print(f"App berubah: {current_app} -> {new_app}")
+                print(f"📲 App: {current_app} → {new_app}")
+                
+                category = categorize_app(current_app)
+                
                 logs.append({
                     "app": current_app,
                     "category": category,
@@ -88,36 +110,30 @@ def main():
                     "active_sec": active_sec,
                     "afk_sec": afk_sec
                 })
-                save_logs(logs)
+                save_activity_logs(logs)
 
-                if category == "distracting":
-                    total_distract_today += active_sec
-                    if total_distract_today >= distract_limit and not alert_sent:
-                        print("ALERT: Distraksi harian melewati batas.")
-                        alert_sent = True
-
-                # reset session
+                # Reset session
                 current_app = new_app
                 start_time = now
                 active_sec = 0
                 afk_sec = 0
-                focus_recovery_sec = 0
 
     except KeyboardInterrupt:
         now = datetime.now()
-        category = classify_app(current_app, rules)
 
-        logs.append({
-            "app": current_app,
-            "category": category,
-            "start": start_time.isoformat(),
-            "end": now.isoformat(),
-            "active_sec": active_sec,
-            "afk_sec": afk_sec
-        })
-        save_logs(logs)
+        if active_sec > 0 or afk_sec > 0:
+            category = categorize_app(current_app)
+            logs.append({
+                "app": current_app,
+                "category": category,
+                "start": start_time.isoformat(),
+                "end": now.isoformat(),
+                "active_sec": active_sec,
+                "afk_sec": afk_sec
+            })
+            save_activity_logs(logs)
 
-        print("Tracker berhenti. Data terakhir aman.")
+        print("\n⛔ Tracker stopped. Data saved.")
 
 
 if __name__ == "__main__":
