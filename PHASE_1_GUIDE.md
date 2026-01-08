@@ -107,7 +107,7 @@ data/
 - `break_count` - Number of 5+ minute breaks
 
 **Categories:**
-- `productive_sec`, `distracting_sec`, `neutral_sec`, `unknown_sec`
+- (App-agnostic numeric features; no category labels)
 
 ### Deviation Alerts
 
@@ -174,7 +174,7 @@ Add new features to `DailyFeatures` model:
 ### Important Notes
 
 - **Not a prediction system**: This detects *your* deviation from *yourself*, not predicting future behavior
-- **No moral judgments**: "Productive" and "distraction" are YOUR categories, the system is neutral
+- **No moral judgments**: The system never labels apps as productive/distracting; you decide what matters
 - **Privacy first**: All analysis is local, no data sent anywhere
 - **Statistical foundation**: Z-scores are scientifically sound; no magic
 

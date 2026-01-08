@@ -14,7 +14,6 @@ def test_extract_insufficient_data():
     """Logs with < 5 minutes total activity should return None."""
     logs = [{
         "app": "notepad.exe",
-        "category": "productive",
         "start": "2026-01-08T09:00:00",
         "end": "2026-01-08T09:02:00",  # 2 minutes
         "active_sec": 120,
@@ -28,7 +27,6 @@ def test_extract_single_session():
     """Single session should compute features correctly."""
     logs = [{
         "app": "Code.exe",
-        "category": "productive",
         "start": "2026-01-08T09:00:00",
         "end": "2026-01-08T10:00:00",
         "active_sec": 3600,
@@ -51,7 +49,6 @@ def test_extract_multiple_sessions():
     logs = [
         {
             "app": "Code.exe",
-            "category": "productive",
             "start": "2026-01-08T09:00:00",
             "end": "2026-01-08T10:00:00",
             "active_sec": 3600,
@@ -59,7 +56,6 @@ def test_extract_multiple_sessions():
         },
         {
             "app": "Chrome.exe",
-            "category": "distracting",
             "start": "2026-01-08T10:00:00",
             "end": "2026-01-08T10:30:00",
             "active_sec": 1800,
@@ -67,7 +63,6 @@ def test_extract_multiple_sessions():
         },
         {
             "app": "Code.exe",
-            "category": "productive",
             "start": "2026-01-08T10:30:00",
             "end": "2026-01-08T11:30:00",
             "active_sec": 3600,
@@ -79,15 +74,12 @@ def test_extract_multiple_sessions():
     assert result.session_count == 3
     assert result.total_active_sec == 9000
     assert result.avg_session_length_sec == 3000
-    assert result.productive_sec == 7200
-    assert result.distracting_sec == 1800
 
 
 def test_extract_with_afk():
     """AFK periods should be counted separately."""
     logs = [{
         "app": "Code.exe",
-        "category": "productive",
         "start": "2026-01-08T09:00:00",
         "end": "2026-01-08T10:00:00",
         "active_sec": 3600,
@@ -105,7 +97,6 @@ def test_weekend_detection():
     # 2026-01-10 is Saturday
     logs = [{
         "app": "Code.exe",
-        "category": "productive",
         "start": "2026-01-10T09:00:00",
         "end": "2026-01-10T10:00:00",
         "active_sec": 3600,
@@ -121,7 +112,6 @@ def test_data_quality():
     # Partial data (5-60 minutes)
     logs = [{
         "app": "Code.exe",
-        "category": "productive",
         "start": "2026-01-08T09:00:00",
         "end": "2026-01-08T09:30:00",
         "active_sec": 1800,

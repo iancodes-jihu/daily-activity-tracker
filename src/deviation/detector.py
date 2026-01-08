@@ -61,21 +61,9 @@ def detect_deviation(today_features: DailyFeatures,
         else:
             percent_chg = 0.0
         
-        # Determine severity
-        is_deviation = False
-        severity = "normal"
-        
-        if alert_direction == "below" and z < -z_threshold:
-            is_deviation = True
-            severity = "critical" if z < -3 else "warning"
-        elif alert_direction == "above" and z > z_threshold:
-            is_deviation = True
-            severity = "critical" if z > 3 else "warning"
-        
         # Get percentile rank
         pctl = percentile_rank(today_val, baseline_values) if baseline_values else 50
-        direction = "below" if z < 0 else "above"
-        
+
         feature_devs.append(FeatureDeviation(
             feature_name=fname,
             today_value=round(today_val, 2),
@@ -84,32 +72,14 @@ def detect_deviation(today_features: DailyFeatures,
             z_score=round(z, 2),
             percentile_rank=pctl,
             percent_change=round(percent_chg, 1),
-            severity=severity,
-            direction=direction
         ))
-        
-        if is_deviation:
-            weighted_score += abs(z)
+
+        # Accumulate absolute z for an overall numeric score
+        weighted_score += abs(z)
     
-    # Determine overall status
-    num_critical = sum(1 for d in feature_devs if d.severity == "critical")
-    num_warning = sum(1 for d in feature_devs if d.severity == "warning")
-    
-    if num_critical >= 2:
-        status = "critical"
-    elif num_warning + num_critical >= 3 or weighted_score > 8:
-        status = "warning"
-    else:
-        status = "on_track"
-    
-    # Generate human-readable summary
-    from src.deviation.explainer import generate_summary
-    summary_text = generate_summary(feature_devs, status)
-    
+    # Return numeric-only deviation report (no moral labels)
     return DailyDeviation(
         date=today_features.date,
         feature_deviations=feature_devs,
         overall_deviation_score=weighted_score,
-        status=status,
-        summary_text=summary_text
     )

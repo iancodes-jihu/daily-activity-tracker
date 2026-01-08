@@ -77,11 +77,11 @@ def analyze_today():
     
     # Detect deviations
     deviation = detect_deviation(today_features, baseline)
-    print(f"\n🔍 Deviation Analysis")
+    print(f"\n🔍 Deviation Analysis (numeric-only)")
     print("=" * 60)
-    print(deviation.summary_text)
-    print(f"\nStatus: {deviation.status.upper()}")
-    print(f"Overall score: {deviation.overall_deviation_score:.2f}")
+    for d in deviation.feature_deviations:
+        print(f"- {d.feature_name}: today={d.today_value}, baseline_mean={d.baseline_mean}, z={d.z_score}, pct_change={d.percent_change}%")
+    print(f"\nOverall numeric score (sum |z|): {deviation.overall_deviation_score:.2f}")
     
     # Save deviation report
     append_deviation(deviation)

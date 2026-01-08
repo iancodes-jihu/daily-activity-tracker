@@ -61,5 +61,131 @@
     "overall_deviation_score": 0.0,
     "status": "on_track",
     "summary_text": "\u2705 On track: All metrics within normal range."
+  },
+  {
+    "date": "2026-01-08",
+    "feature_deviations": [
+      {
+        "feature_name": "avg_session_length_sec",
+        "today_value": 71.61,
+        "baseline_mean": 60.61,
+        "baseline_std": 20.32,
+        "z_score": 0.54,
+        "percentile_rank": 66,
+        "percent_change": 18.2,
+        "severity": "normal",
+        "direction": "above"
+      },
+      {
+        "feature_name": "session_switch_rate",
+        "today_value": 50.27,
+        "baseline_mean": 65.48,
+        "baseline_std": 27.21,
+        "z_score": -0.56,
+        "percentile_rank": 66,
+        "percent_change": -23.2,
+        "severity": "normal",
+        "direction": "below"
+      },
+      {
+        "feature_name": "afk_ratio",
+        "today_value": 0.18,
+        "baseline_mean": 0.1,
+        "baseline_std": 0.08,
+        "z_score": 1.05,
+        "percentile_rank": 100,
+        "percent_change": 81.1,
+        "severity": "normal",
+        "direction": "above"
+      },
+      {
+        "feature_name": "session_length_cv",
+        "today_value": 1.99,
+        "baseline_mean": 1.67,
+        "baseline_std": 0.3,
+        "z_score": 1.08,
+        "percentile_rank": 100,
+        "percent_change": 19.1,
+        "severity": "normal",
+        "direction": "above"
+      },
+      {
+        "feature_name": "inter_session_gap_mean_sec",
+        "today_value": 5.71,
+        "baseline_mean": 1.9,
+        "baseline_std": 3.29,
+        "z_score": 1.15,
+        "percentile_rank": 100,
+        "percent_change": 200.0,
+        "severity": "normal",
+        "direction": "above"
+      }
+    ],
+    "overall_deviation_score": 0.0,
+    "status": "on_track",
+    "summary_text": "\u2705 On track: All metrics within normal range."
+  },
+  {
+    "date": "2026-01-08",
+    "feature_deviations": [
+      {
+        "feature_name": "avg_session_length_sec",
+        "today_value": 71.61,
+        "baseline_mean": 60.61,
+        "baseline_std": 20.32,
+        "z_score": 0.54,
+        "percentile_rank": 66,
+        "percent_change": 18.2,
+        "severity": "normal",
+        "direction": "above"
+      },
+      {
+        "feature_name": "session_switch_rate",
+        "today_value": 50.27,
+        "baseline_mean": 65.48,
+        "baseline_std": 27.21,
+        "z_score": -0.56,
+        "percentile_rank": 66,
+        "percent_change": -23.2,
+        "severity": "normal",
+        "direction": "below"
+      },
+      {
+        "feature_name": "afk_ratio",
+        "today_value": 0.18,
+        "baseline_mean": 0.1,
+        "baseline_std": 0.08,
+        "z_score": 1.05,
+        "percentile_rank": 100,
+        "percent_change": 81.1,
+        "severity": "normal",
+        "direction": "above"
+      },
+      {
+        "feature_name": "session_length_cv",
+        "today_value": 1.99,
+        "baseline_mean": 1.67,
+        "baseline_std": 0.3,
+        "z_score": 1.08,
+        "percentile_rank": 100,
+        "percent_change": 19.1,
+        "severity": "normal",
+        "direction": "above"
+      },
+      {
+        "feature_name": "inter_session_gap_mean_sec",
+        "today_value": 5.71,
+        "baseline_mean": 1.9,
+        "baseline_std": 3.29,
+        "z_score": 1.15,
+        "percentile_rank": 100,
+        "percent_change": 200.0,
+        "severity": "normal",
+        "direction": "above"
+      }
+    ],
+    "overall_deviation_score": 0.0,
+    "status": "on_track",
+    "summary_text": "\u2705 On track: All metrics within normal range."
   }
 ]

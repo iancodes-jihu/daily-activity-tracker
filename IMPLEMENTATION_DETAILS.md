@@ -84,12 +84,11 @@ GENERATED files (auto-created by scripts):
 **Responsibility**: Convert raw session logs → daily metrics
 **Exports**:
 - `extract_daily_features(logs, target_date)` → DailyFeatures object
-**Computes** (18 metrics):
+**Computes** (17 app-agnostic numeric metrics):
 - Time: total_active, total_afk, session_count
 - Focus: avg/median/stdev session length, session concentration
 - Fragmentation: switch_rate, inter_session_gaps
 - Off-screen: afk_ratio, break statistics
-- Categories: productive/distracting/neutral/unknown breakdown
 
 ### `src/baseline/rolling_window.py`
 **Responsibility**: Statistical baseline from historical features
@@ -143,12 +142,12 @@ GENERATED files (auto-created by scripts):
 
 ```
 1. Raw Collection (main.py):
-   app_name, category, start, end, active_sec, afk_sec
-   → Saved to data/activity_log.json
+   app_name, start, end, active_sec, afk_sec
+   → Saved to data/activity_log.json (no app categorization)
 
 2. Feature Extraction (scripts/init_baseline.py or daily):
    Raw logs  →  extract_daily_features()
-   → 18 metrics per day
+   → 17 app-agnostic numeric metrics per day
    → Saved to data/daily_features.json
 
 3. Baseline Building (scripts/analyze_today.py daily):
@@ -158,12 +157,12 @@ GENERATED files (auto-created by scripts):
 
 4. Deviation Detection (scripts/analyze_today.py daily):
    Today's features + baseline  →  detect_deviation()
-   → Z-scores, severity, status
-   → English explanations via explainer.py
+   → Z-scores, percent changes, per-feature numeric metrics
+   → Numeric-only output (no moral labels)
    → Saved to data/deviation_log.json
 
 5. Output:
-   Human reads: deviation report with explanations
+   User reads: per-feature numeric deviations and overall deviation score
 ```
 
 ---
