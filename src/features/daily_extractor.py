@@ -85,12 +85,6 @@ def extract_daily_features(logs: List[Dict], target_date: date) -> Optional[Dail
     top_3_sum = sum(sorted_sessions[:3])
     activity_concentration = top_3_sum / total_active if total_active > 0 else 0.0
     
-    # === Category breakdown ===
-    productive = sum(log.get("active_sec", 0) for log in day_logs if log.get("category") == "productive")
-    distracting = sum(log.get("active_sec", 0) for log in day_logs if log.get("category") == "distracting")
-    neutral = sum(log.get("active_sec", 0) for log in day_logs if log.get("category") == "neutral")
-    unknown = sum(log.get("active_sec", 0) for log in day_logs if log.get("category") == "unknown")
-    
     # === Data quality ===
     if total_active >= 3600:  # >= 1 hour
         data_quality = "complete"
@@ -120,10 +114,6 @@ def extract_daily_features(logs: List[Dict], target_date: date) -> Optional[Dail
         inter_session_gap_mean_sec=avg_gap,
         session_length_cv=session_cv,
         activity_concentration=activity_concentration,
-        productive_sec=productive,
-        distracting_sec=distracting,
-        neutral_sec=neutral,
-        unknown_sec=unknown,
         is_weekend=target_date.weekday() >= 5,
         data_quality=data_quality
     )

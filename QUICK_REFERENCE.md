@@ -60,40 +60,37 @@ pytest tests/ -v
 - `break_count` — Long AFK periods
 - `avg_break_length_sec` — Break duration
 
-**Category Breakdown**
-- `productive_sec` — Work/code time
-- `distracting_sec` — Social media/games
-- `neutral_sec` — System/admin
-- `unknown_sec` — Uncategorized
-
-**Plus 6 more**: spans, totals, metadata...
+**Plus 7 more**: spans, totals, metadata...
 
 ## Deviation Signals
 
-The system alerts you when:
-- Sessions got **shorter** (loss of focus)
-- **More app switching** (distracted)
-- **More AFK** (fatigue or break)
-- **Inconsistent rhythm** (erratic day)
-- **Fragmented work** (interrupted)
+The system reports numeric deviations when:
+- Sessions got **shorter** than baseline (z-score or % change)
+- **More app switching** (z-score or % change)
+- **More AFK** (z-score or % change)
+- **Inconsistent rhythm** (z-score or % change)
+- **Fragmented work** (z-score or % change)
+
+All outputs are numeric (z-scores, percent change, percentile rank) — **no moral judgments**.
 
 ## Example Output
 
 **Normal Day:**
 ```
-✅ On track: All metrics within normal range.
-Status: ON_TRACK
+- avg_session_length_sec: today=1200, baseline_mean=1080, z=-0.18, pct_change=11.1%
+- session_switch_rate: today=5.0, baseline_mean=5.0, z=0.0, pct_change=0.0%
+- afk_ratio: today=0.1, baseline_mean=0.1, z=0.0, pct_change=0.0%
+
+Overall numeric score (sum |z|): 0.18
 ```
 
-**Bad Day:**
+**Deviation Day:**
 ```
-⚠️ WARNING: Some deviations from your baseline.
+- avg_session_length_sec: today=500, baseline_mean=1080, z=-2.9, pct_change=-53.7%
+- session_switch_rate: today=12.0, baseline_mean=5.0, z=7.0, pct_change=140.0%
+- afk_ratio: today=0.25, baseline_mean=0.1, z=7.5, pct_change=150.0%
 
-⚠️ Sessions shortened: 8m avg vs 16m baseline (-48%)
-   → Possible loss of focus or more fragmentation
-
-⚠️ App switches increased: 12.4 per hour vs 7.2 baseline (+72%)
-   → More context-switching, possible distraction
+Overall numeric score (sum |z|): 17.4
 ```
 
 ## Configuration
@@ -106,12 +103,6 @@ BASELINE_WINDOW_DAYS = 14  # Look back 14 days
 **In `src/deviation/detector.py`:**
 ```python
 Z_SCORE_THRESHOLD = 2.0    # 95% statistical confidence
-```
-
-**In `main.py`:**
-```python
-productive_apps = ["Code.exe", "ChatGPT.exe", ...]
-distracting_apps = ["Instagram", "Twitter", ...]
 ```
 
 ## Data Flow (Simplified)

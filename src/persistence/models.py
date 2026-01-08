@@ -9,7 +9,6 @@ class RawLog(BaseModel):
     model_config = ConfigDict(extra="allow")
     
     app: str
-    category: str
     start: str  # ISO format datetime
     end: str  # ISO format datetime
     active_sec: int
@@ -51,11 +50,7 @@ class DailyFeatures(BaseModel):
     session_length_cv: float  # Coefficient of variation
     activity_concentration: float = Field(ge=0, le=1)
     
-    # === Category Breakdown ===
-    productive_sec: int
-    distracting_sec: int
-    neutral_sec: int
-    unknown_sec: int
+    # (No app-level moral labels — feature set is app-agnostic)
     
     # === Metadata ===
     is_weekend: bool
@@ -85,8 +80,7 @@ class FeatureDeviation(BaseModel):
     z_score: float
     percentile_rank: int = Field(ge=0, le=100)
     percent_change: float
-    severity: str  # "normal", "warning", "critical"
-    direction: str  # "above" or "below"
+    # No severity labels or direction fields — numeric-only
 
 
 class DailyDeviation(BaseModel):
@@ -94,5 +88,4 @@ class DailyDeviation(BaseModel):
     date: date
     feature_deviations: List[FeatureDeviation]
     overall_deviation_score: float
-    status: str  # "on_track", "warning", "critical"
-    summary_text: str
+    # No overall status label or free-text explanation stored here

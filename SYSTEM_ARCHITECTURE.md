@@ -29,7 +29,7 @@
                                  │
                          ┌───────▼────────┐
                          │ RawLog Events  │
-                         │ (category,     │
+                         │ (app,          │
                          │  active_sec,   │
                          │  afk_sec)      │
                          └───────┬────────┘
@@ -170,17 +170,17 @@ scripts/analyze_today.py
 ├─────────────────────────────────────────────────────────────────┤
 │ {                                                               │
 │   "app": "Code.exe",                                            │
-│   "category": "productive",                                     │
 │   "start": "2026-01-08T09:00:00",                              │
 │   "end": "2026-01-08T10:00:00",                                │
 │   "active_sec": 3600,                                           │
 │   "afk_sec": 0                                                  │
 │ }                                                               │
+│ (no app categorization; raw identifiers only)                  │
 │                              ↓ extract_daily_features()         │
 └─────────────────────────────────────────────────────────────────┘
 
 ┌─────────────────────────────────────────────────────────────────┐
-│ TIER 2: DAILY FEATURES (derived, compressed, queryable)        │
+│ TIER 2: DAILY FEATURES (derived, app-agnostic, numeric)        │
 ├─────────────────────────────────────────────────────────────────┤
 │ {                                                               │
 │   "date": "2026-01-08",                                         │
@@ -193,9 +193,7 @@ scripts/analyze_today.py
 │   "session_length_cv": 0.85,                                    │
 │   "inter_session_gap_mean_sec": 300,                           │
 │   "activity_concentration": 0.40,                               │
-│   "productive_sec": 18000,                                      │
-│   "distracting_sec": 7200,                                      │
-│   ... (9 more metrics)                                          │
+│   ... (8 more app-agnostic metrics)                            │
 │ }                                                               │
 │                                ↓ build_baseline()               │
 └─────────────────────────────────────────────────────────────────┘

@@ -1953,5 +1953,429 @@
     "end": "2026-01-08T01:36:16.970622",
     "active_sec": 10,
     "afk_sec": 0
+  },
+  {
+    "app": "Code.exe",
+    "start": "2026-01-08T01:36:16.970622",
+    "end": "2026-01-08T01:41:12.121919",
+    "active_sec": 295,
+    "afk_sec": 0
+  },
+  {
+    "app": "firefox.exe",
+    "start": "2026-01-08T01:41:12.121919",
+    "end": "2026-01-08T01:41:37.149783",
+    "active_sec": 25,
+    "afk_sec": 0
+  },
+  {
+    "app": "Code.exe",
+    "start": "2026-01-08T01:41:37.149783",
+    "end": "2026-01-08T01:41:42.169282",
+    "active_sec": 5,
+    "afk_sec": 0
+  },
+  {
+    "app": "explorer.exe",
+    "start": "2026-01-08T01:41:42.169282",
+    "end": "2026-01-08T01:41:47.222563",
+    "active_sec": 5,
+    "afk_sec": 0
+  },
+  {
+    "app": "firefox.exe",
+    "start": "2026-01-08T01:41:47.222563",
+    "end": "2026-01-08T01:41:57.473852",
+    "active_sec": 10,
+    "afk_sec": 0
+  },
+  {
+    "app": "Code.exe",
+    "start": "2026-01-08T01:41:57.473852",
+    "end": "2026-01-08T01:42:47.520300",
+    "active_sec": 50,
+    "afk_sec": 0
+  },
+  {
+    "app": "firefox.exe",
+    "start": "2026-01-08T01:42:47.520300",
+    "end": "2026-01-08T01:43:32.609246",
+    "active_sec": 45,
+    "afk_sec": 0
+  },
+  {
+    "app": "Code.exe",
+    "start": "2026-01-08T01:43:32.609246",
+    "end": "2026-01-08T01:46:35.515273",
+    "active_sec": 180,
+    "afk_sec": 0
+  },
+  {
+    "app": "Code.exe",
+    "category": "productive",
+    "start": "2026-01-08T01:46:39.475748",
+    "end": "2026-01-08T01:46:54.655031",
+    "active_sec": 15,
+    "afk_sec": 0
+  },
+  {
+    "app": "WhatsApp.Root.exe",
+    "category": "unknown",
+    "start": "2026-01-08T01:46:54.655031",
+    "end": "2026-01-08T01:47:24.705861",
+    "active_sec": 30,
+    "afk_sec": 0
+  },
+  {
+    "app": "Code.exe",
+    "category": "productive",
+    "start": "2026-01-08T01:47:24.705861",
+    "end": "2026-01-08T01:47:34.752397",
+    "active_sec": 10,
+    "afk_sec": 0
+  },
+  {
+    "app": "Obsidian.exe",
+    "category": "unknown",
+    "start": "2026-01-08T01:47:34.752397",
+    "end": "2026-01-08T01:47:39.856811",
+    "active_sec": 5,
+    "afk_sec": 0
+  },
+  {
+    "app": "explorer.exe",
+    "category": "neutral",
+    "start": "2026-01-08T01:47:39.856811",
+    "end": "2026-01-08T01:47:50.052509",
+    "active_sec": 10,
+    "afk_sec": 0
+  },
+  {
+    "app": "Obsidian.exe",
+    "category": "unknown",
+    "start": "2026-01-08T01:47:50.052509",
+    "end": "2026-01-08T01:47:55.141172",
+    "active_sec": 5,
+    "afk_sec": 0
+  },
+  {
+    "app": "Code.exe",
+    "category": "productive",
+    "start": "2026-01-08T01:47:55.141172",
+    "end": "2026-01-08T01:50:35.229979",
+    "active_sec": 160,
+    "afk_sec": 0
+  },
+  {
+    "app": "firefox.exe",
+    "category": "productive",
+    "start": "2026-01-08T01:50:35.229979",
+    "end": "2026-01-08T01:59:50.711483",
+    "active_sec": 475,
+    "afk_sec": 75
+  },
+  {
+    "app": "Code.exe",
+    "category": "productive",
+    "start": "2026-01-08T01:59:50.711483",
+    "end": "2026-01-08T02:00:25.811323",
+    "active_sec": 35,
+    "afk_sec": 0
+  },
+  {
+    "app": "Discord.exe",
+    "category": "distracting",
+    "start": "2026-01-08T02:00:25.811323",
+    "end": "2026-01-08T02:00:30.852815",
+    "active_sec": 5,
+    "afk_sec": 0
+  },
+  {
+    "app": "firefox.exe",
+    "category": "productive",
+    "start": "2026-01-08T02:00:30.852815",
+    "end": "2026-01-08T02:02:36.183843",
+    "active_sec": 125,
+    "afk_sec": 0
+  },
+  {
+    "app": "Code.exe",
+    "category": "productive",
+    "start": "2026-01-08T02:02:36.183843",
+    "end": "2026-01-08T02:02:51.215391",
+    "active_sec": 15,
+    "afk_sec": 0
+  },
+  {
+    "app": "firefox.exe",
+    "category": "productive",
+    "start": "2026-01-08T02:02:51.215391",
+    "end": "2026-01-08T02:04:46.430107",
+    "active_sec": 115,
+    "afk_sec": 0
+  },
+  {
+    "app": "Code.exe",
+    "category": "productive",
+    "start": "2026-01-08T02:04:46.430107",
+    "end": "2026-01-08T02:05:06.499541",
+    "active_sec": 20,
+    "afk_sec": 0
+  },
+  {
+    "app": "firefox.exe",
+    "category": "productive",
+    "start": "2026-01-08T02:05:06.499541",
+    "end": "2026-01-08T02:14:16.697998",
+    "active_sec": 550,
+    "afk_sec": 0
+  },
+  {
+    "app": "Code.exe",
+    "category": "productive",
+    "start": "2026-01-08T02:14:16.697998",
+    "end": "2026-01-08T02:14:21.755003",
+    "active_sec": 5,
+    "afk_sec": 0
+  },
+  {
+    "app": "firefox.exe",
+    "category": "productive",
+    "start": "2026-01-08T02:14:21.755003",
+    "end": "2026-01-08T02:17:11.855891",
+    "active_sec": 170,
+    "afk_sec": 0
+  },
+  {
+    "app": "WhatsApp.Root.exe",
+    "category": "unknown",
+    "start": "2026-01-08T02:17:11.855891",
+    "end": "2026-01-08T02:17:16.890122",
+    "active_sec": 5,
+    "afk_sec": 0
+  },
+  {
+    "app": "Code.exe",
+    "category": "productive",
+    "start": "2026-01-08T20:04:12.950143",
+    "end": "2026-01-08T20:04:28.261976",
+    "active_sec": 15,
+    "afk_sec": 0
+  },
+  {
+    "app": "ShellHost.exe",
+    "category": "unknown",
+    "start": "2026-01-08T20:04:28.261976",
+    "end": "2026-01-08T20:04:38.289359",
+    "active_sec": 10,
+    "afk_sec": 0
+  },
+  {
+    "app": "Code.exe",
+    "category": "productive",
+    "start": "2026-01-08T20:04:38.289359",
+    "end": "2026-01-08T20:05:38.342539",
+    "active_sec": 60,
+    "afk_sec": 0
+  },
+  {
+    "app": "SearchHost.exe",
+    "category": "neutral",
+    "start": "2026-01-08T20:05:38.342539",
+    "end": "2026-01-08T20:05:43.368044",
+    "active_sec": 5,
+    "afk_sec": 0
+  },
+  {
+    "app": "explorer.exe",
+    "category": "neutral",
+    "start": "2026-01-08T20:05:43.368044",
+    "end": "2026-01-08T20:05:53.393352",
+    "active_sec": 10,
+    "afk_sec": 0
+  },
+  {
+    "app": "ChatGPT.exe",
+    "category": "productive",
+    "start": "2026-01-08T20:05:53.393352",
+    "end": "2026-01-08T20:08:53.517867",
+    "active_sec": 180,
+    "afk_sec": 0
+  },
+  {
+    "app": "Obsidian.exe",
+    "category": "unknown",
+    "start": "2026-01-08T20:08:53.517867",
+    "end": "2026-01-08T20:09:23.590258",
+    "active_sec": 30,
+    "afk_sec": 0
+  },
+  {
+    "app": "ChatGPT.exe",
+    "category": "productive",
+    "start": "2026-01-08T20:09:23.590258",
+    "end": "2026-01-08T20:09:48.623146",
+    "active_sec": 25,
+    "afk_sec": 0
+  },
+  {
+    "app": "firefox.exe",
+    "category": "productive",
+    "start": "2026-01-08T20:09:48.623146",
+    "end": "2026-01-08T20:09:58.658424",
+    "active_sec": 10,
+    "afk_sec": 0
+  },
+  {
+    "app": "ChatGPT.exe",
+    "category": "productive",
+    "start": "2026-01-08T20:09:58.658424",
+    "end": "2026-01-08T20:11:03.718177",
+    "active_sec": 65,
+    "afk_sec": 0
+  },
+  {
+    "app": "firefox.exe",
+    "category": "productive",
+    "start": "2026-01-08T20:11:03.718177",
+    "end": "2026-01-08T20:11:08.751631",
+    "active_sec": 5,
+    "afk_sec": 0
+  },
+  {
+    "app": "ChatGPT.exe",
+    "category": "productive",
+    "start": "2026-01-08T20:11:08.751631",
+    "end": "2026-01-08T20:14:03.947205",
+    "active_sec": 175,
+    "afk_sec": 0
+  },
+  {
+    "app": "Obsidian.exe",
+    "category": "unknown",
+    "start": "2026-01-08T20:14:03.947205",
+    "end": "2026-01-08T20:14:18.981221",
+    "active_sec": 15,
+    "afk_sec": 0
+  },
+  {
+    "app": "firefox.exe",
+    "category": "productive",
+    "start": "2026-01-08T20:14:18.981221",
+    "end": "2026-01-08T20:14:39.013689",
+    "active_sec": 20,
+    "afk_sec": 0
+  },
+  {
+    "app": "ChatGPT.exe",
+    "category": "productive",
+    "start": "2026-01-08T20:14:39.013689",
+    "end": "2026-01-08T20:25:29.347161",
+    "active_sec": 650,
+    "afk_sec": 0
+  },
+  {
+    "app": "SnippingTool.exe",
+    "category": "unknown",
+    "start": "2026-01-08T20:25:29.347161",
+    "end": "2026-01-08T20:25:34.440269",
+    "active_sec": 5,
+    "afk_sec": 0
+  },
+  {
+    "app": "ChatGPT.exe",
+    "category": "productive",
+    "start": "2026-01-08T20:25:34.440269",
+    "end": "2026-01-08T20:25:39.470760",
+    "active_sec": 5,
+    "afk_sec": 0
+  },
+  {
+    "app": "SnippingTool.exe",
+    "category": "unknown",
+    "start": "2026-01-08T20:25:39.470760",
+    "end": "2026-01-08T20:25:44.496339",
+    "active_sec": 5,
+    "afk_sec": 0
+  },
+  {
+    "app": "SearchHost.exe",
+    "category": "neutral",
+    "start": "2026-01-08T20:25:44.496339",
+    "end": "2026-01-08T20:25:54.634459",
+    "active_sec": 10,
+    "afk_sec": 0
+  },
+  {
+    "app": "explorer.exe",
+    "category": "neutral",
+    "start": "2026-01-08T20:25:54.634459",
+    "end": "2026-01-08T20:26:00.269553",
+    "active_sec": 5,
+    "afk_sec": 0
+  },
+  {
+    "app": "WhatsApp.Root.exe",
+    "category": "unknown",
+    "start": "2026-01-08T20:26:00.269553",
+    "end": "2026-01-08T20:26:45.362199",
+    "active_sec": 45,
+    "afk_sec": 0
+  },
+  {
+    "app": "ChatGPT.exe",
+    "category": "productive",
+    "start": "2026-01-08T20:26:45.362199",
+    "end": "2026-01-08T20:32:10.561567",
+    "active_sec": 325,
+    "afk_sec": 0
+  },
+  {
+    "app": "firefox.exe",
+    "category": "productive",
+    "start": "2026-01-08T20:32:10.561567",
+    "end": "2026-01-08T20:32:15.585297",
+    "active_sec": 5,
+    "afk_sec": 0
+  },
+  {
+    "app": "Code.exe",
+    "category": "productive",
+    "start": "2026-01-08T20:32:15.585297",
+    "end": "2026-01-08T20:48:51.457000",
+    "active_sec": 690,
+    "afk_sec": 280
+  },
+  {
+    "app": "explorer.exe",
+    "category": "neutral",
+    "start": "2026-01-08T20:48:51.457000",
+    "end": "2026-01-08T20:49:01.552927",
+    "active_sec": 10,
+    "afk_sec": 0
+  },
+  {
+    "app": "Code.exe",
+    "category": "productive",
+    "start": "2026-01-08T20:49:01.552927",
+    "end": "2026-01-08T20:50:46.680301",
+    "active_sec": 105,
+    "afk_sec": 0
+  },
+  {
+    "app": "Zoom.exe",
+    "category": "unknown",
+    "start": "2026-01-08T20:50:46.680301",
+    "end": "2026-01-08T20:50:56.747102",
+    "active_sec": 10,
+    "afk_sec": 0
+  },
+  {
+    "app": "Code.exe",
+    "category": "productive",
+    "start": "2026-01-08T20:50:56.747102",
+    "end": "2026-01-08T20:51:48.561202",
+    "active_sec": 50,
+    "afk_sec": 0
   }
 ]

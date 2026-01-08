@@ -14,23 +14,7 @@ def load_offline_schedule():
         return []
 
 
-def categorize_app(app_name: str) -> str:
-    """Categorize app by name (basic heuristic)."""
-    productive_apps = ["Code.exe", "ChatGPT.exe", "nvim.exe", "python.exe", "firefox.exe"]
-    distracting_apps = ["Instagram", "Twitter", "TikTok", "Facebook", "Discord.exe", "Slack.exe", "YouTube"]
-    
-    for app in productive_apps:
-        if app.lower() in app_name.lower():
-            return "productive"
-    
-    for app in distracting_apps:
-        if app.lower() in app_name.lower():
-            return "distracting"
-    
-    if app_name in ["explorer.exe", "SearchHost.exe"]:
-        return "neutral"
-    
-    return "unknown"
+# No app categorization: raw logs store app identifiers only (no moral labels)
 
 
 def main():
@@ -100,11 +84,8 @@ def main():
             if new_app != current_app:
                 print(f"📲 App: {current_app} → {new_app}")
                 
-                category = categorize_app(current_app)
-                
                 logs.append({
                     "app": current_app,
-                    "category": category,
                     "start": start_time.isoformat(),
                     "end": now.isoformat(),
                     "active_sec": active_sec,
@@ -122,10 +103,8 @@ def main():
         now = datetime.now()
 
         if active_sec > 0 or afk_sec > 0:
-            category = categorize_app(current_app)
             logs.append({
                 "app": current_app,
-                "category": category,
                 "start": start_time.isoformat(),
                 "end": now.isoformat(),
                 "active_sec": active_sec,

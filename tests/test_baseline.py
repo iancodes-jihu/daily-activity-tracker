@@ -29,10 +29,7 @@ def sample_features(date_offset: int, total_active: int = 10800) -> DailyFeature
         inter_session_gap_mean_sec=300,
         session_length_cv=0.74,
         activity_concentration=0.35,
-        productive_sec=7200,
-        distracting_sec=2400,
-        neutral_sec=1200,
-        unknown_sec=0,
+        
         is_weekend=False,
         data_quality="complete"
     )
